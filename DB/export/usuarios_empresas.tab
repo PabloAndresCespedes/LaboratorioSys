@@ -1,0 +1,16 @@
+﻿create table DEVELOPER.USUARIOS_EMPRESAS
+(
+  id         NUMBER not null,
+  usuario_id NUMBER not null,
+  empresa_id NUMBER not null
+)
+;
+alter table DEVELOPER.USUARIOS_EMPRESAS
+  add constraint USUARIOS_EMPRESAS_PK primary key (ID);
+alter table DEVELOPER.USUARIOS_EMPRESAS
+  add constraint USUARIOS_EMPRESAS_EMPR_FK foreign key (EMPRESA_ID)
+  references DEVELOPER.RT_EMPRESAS (ID) on delete cascade;
+alter table DEVELOPER.USUARIOS_EMPRESAS
+  add constraint USUARIO_EMPRESAS_USU_FK foreign key (USUARIO_ID)
+  references DEVELOPER.USUARIOS (ID) on delete cascade;
+
